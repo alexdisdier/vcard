@@ -17,7 +17,8 @@ les fonctionnalités
 - Modification du contenu
 - Récupération du mot de passe oublié
 - Construction d'un package d'installation du site (install-vcard.php + vcard_archive.zip) dans le dossier dist
-
+- Si vous désirez accéder au backend, envoyez-moi un message à alex@onze.digital avec l'adresse email de votre choix. Je vous enverrai un mot de passe temporaire.
+- Ensuite, pour accéder au backend, veuillez cliquer sur le smily emoji dans le footer du site. Bonne navigation.
 
 Ce que j'ai appris grâce à ce projet
 ------------------------------------
