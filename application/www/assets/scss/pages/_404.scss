@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+  Error Messages and 404 page
+--------------------------------------------------------------*/
+
+.error-404 {
+  p {
+    font-size: em(12px);
+  }
+  a {
+    font-size: em(16px);
+    color: #07203f;
+  }
+}
+
+.error-message {
+  margin-bottom: em(24px);
+
+  p {
+    color: $color-error-message;
+    text-align: center;
+  }
+
+}
+
+.error {
+  color: $color-link;
+}
+
+.error-code {
+  background-color: $color-link;
+  padding: em(24px);
+  img {
+    width: em(32px);
+  }
+}

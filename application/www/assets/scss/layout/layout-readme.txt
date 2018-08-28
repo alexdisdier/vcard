@@ -1,0 +1,1 @@
+Your macro layout files go in the layouts folder (sometimes called partials/). It usually contains a number of files, each of them setting some styles for the main sections of the layout (header, footer, and so on). It also contains the _grid file which is the grid system used to build the layout.

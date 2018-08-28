@@ -1,0 +1,17 @@
+<?php
+/**
+* profileModal.phtml => Backend
+*/
+?>
+
+<div id="js-photo-modal" class="modal-container">
+	<form  id="photo-form" class="modal fade-in" action="<?= $requestUrl ?>/admin/profile/" method="POST" enctype="multipart/form-data" >
+		<span class="button-close" onclick="document.getElementById('js-photo-modal').style.display='none';">&#10005;</span>
+		<h3 class="form-title">Update your profile photo<span class="form-subtitle">Best 360 pixels wide by 400</span></h3>
+
+		<input id="photo-profile" name="profile_img" type="file" accept=".png, .jpg, .jpeg">
+
+		<input class="button" type="submit" value="save">
+
+	</form>
+</div>

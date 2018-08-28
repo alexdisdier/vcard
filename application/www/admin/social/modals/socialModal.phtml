@@ -1,0 +1,50 @@
+<?php
+/**
+* SocialView.phtml => Backend
+*
+*/
+/**
+* social media bar template
+* J'utilise une fonction social_media($name) qui se trouve dans library/functions.php
+*/
+
+$defaultSocials = array(
+  'facebook',
+  'flickr',
+  'github',
+  'googleplus',
+  'instagram',
+  'linkedin',
+  'medium',
+  'twitter',
+  'youtube'
+);
+?>
+
+<div id="js-social-modal" class="modal-container">
+  <form  id="social-form" class="modal fade-in" action="<?= $requestUrl ?>/admin/social/" method="POST">
+    <span class="button-close" onclick="document.getElementById('js-social-modal').style.display='none';">&#10005;</span>
+    <h3 class="form-title">Choose your Social Media<span class="form-subtitle">Fill maximum 5</span></h3>
+
+    <?php foreach ($defaultSocials as $defaultSocial):?>
+
+      <div class="social-flex">
+        <input type="text" id="<?= $defaultSocial ?>-text" name="social_name[]" value="<?= $defaultSocial ?>" hidden/>
+        <label for="<?= $defaultSocial ?>-url"><?= $defaultSocial ?></label>
+        <input type="url"  id="<?= $defaultSocial ?>-url" name="social_url[]" pattern="https://.*" size="20" value="<?php
+
+        foreach ($socials as $social) {
+          if (!empty($social['social_url']) && ($social["social_name"] == $defaultSocial) ){
+            echo $social['social_url'];
+          }
+        };
+
+        ?>" />
+      </div>
+
+    <?php endforeach;?>
+
+    <input class="button button-primary" type="submit" value="save">
+
+  </form>
+</div> <!-- js-social-modal -->

@@ -1,0 +1,97 @@
+<?php
+/**
+* AboutView.phtml => Frontend
+*/
+?>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-6">
+		<div class="col-inner">
+
+			<div class="content-title ">
+				<h3>About <span>Me</span></h3>
+			</div>
+
+			<div class="content-body">
+
+				<p class="short-text"><?php
+					// Check if the table is not empty
+					if (!empty($abouts[0]['content_short']) ) {
+						echo $abouts[0]['content_short'];
+					}else {
+						echo "Shakespeare was born and raised in Stratford-upon-Avon, Warwickshire. At the age of 18, he married Anne Hathaway, with whom he had three children: Susanna and twins Hamnet and Judith.";
+					};
+
+					?> <span class="read-more-btn link-theme" id="readMoreBtn">Read More</span>
+				</p><!-- short-text-->
+
+				<p class="long-text js-hidden" id="js-read-more"><?php
+
+					if (!empty($abouts[0]['content_long']) ) {
+						echo $abouts[0]['content_long'];
+					}else {
+						echo "Sometime between 1585 and 1592, he began a successful career in London as an actor, writer, and part-owner of a playing company called the Lord Chamberlain's Men, later known as the King's Men.";
+					};
+
+			?></p><!-- long-text -->
+			</div><!-- .content-body -->
+
+			<a href="<?php
+
+				if (!empty($abouts[0]['portfolio_url']) ) {
+					echo $abouts[0]['portfolio_url'];
+				}else {
+					echo "https://en.wikipedia.org/wiki/William_Shakespeare";
+				};
+
+			?>" target="_blank" class="link-theme">View Portfolio</a>
+
+		</div>
+	</div><!-- .col-xs-12 col-sm-6 -->
+
+	<div class="col-xs-12 col-sm-6">
+		<ul class="info-list">
+			<li>
+				<span class="info-item">Residence</span>
+				<span class="info-item-value"><?php
+
+					if (!empty($abouts[0]['residence']) ) {
+						echo $abouts[0]['residence'];
+					} else {
+						echo 'Stratford';
+					};
+
+			?></span>
+			</li>
+			<li>
+				<span class="info-item">Email</span>
+				<span class="info-item-value"><?php
+
+					if (!empty($abouts[0]['email']) ) {
+						echo $abouts[0]['email'];
+					} else {
+						echo 'william@shakespeare.com';
+					};
+
+				?></span>
+			</li>
+			<li>
+				<span class="info-item">
+					<?php if (!empty($abouts[0]['job_type']) ) {
+						echo $abouts[0]['job_type'];
+					}else {
+						echo 'Playwright';
+					};;?>
+				</span>
+				<span class="info-item-value">
+					<?php if ( empty($abouts[0]['job_availability'])) {
+						echo 'Not available';
+					} else {
+						echo 'Available for hire';
+					}?>
+				</span>
+			</li>
+		</ul>
+	</div><!-- .col-* -->
+
+</div>

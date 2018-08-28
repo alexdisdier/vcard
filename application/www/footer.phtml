@@ -1,0 +1,47 @@
+<?php
+/**
+* footer.phtml => Frontend
+*/
+?>
+
+  </main><!-- #vcard-main -->
+
+<?php if($userSession->isAuthenticated() == true): ?>
+</div><!-- canvas -->
+<?php endif;?>
+
+  <footer>
+    <span>
+
+        <!-- Only appears once before the user created his administrator. userExist is in ./library/functions.php -->
+        <?php if( userExist() == False ): ?>
+          <!-- path to LoginView.phtml -->
+          <a href="<?= $requestUrl ?>/admin/user">
+          <?php endif;?>
+    		Made with a
+        <?php if( userExist() == False ): ?>
+          </a>
+        <?php endif;?>
+
+        <!-- Check if user is logged in -->
+    		<?php if($userSession->isAuthenticated() == false): ?>
+          <!-- path to LoginView.phtml -->
+          <a href="<?= $requestUrl ?>/user/login">
+        <?php endif;?>
+        <span class="icon-footer"><?php icon('smile');?></span>
+        <?php if($userSession->isAuthenticated() == false): ?>
+          </a>
+        <?php endif;?>
+         by me .<!-- SCRIPT which updates the date. can be used for copyright auto update.  -->
+         <script>
+     			var d = new Date();document.write(d.getFullYear());
+        </script><!-- END SCRIPT -->
+    	</span>
+  </footer>
+
+  <script src="<?= $wwwUrl ?>/assets/js/vendors.min.js" type="text/javascript"></script>
+  <script src="<?= $wwwUrl ?>/assets/js/custom.min.js" type="text/javascript"></script>
+
+  </body>
+
+  </html>

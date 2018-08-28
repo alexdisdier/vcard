@@ -1,0 +1,36 @@
+<?php
+/**
+* TokenView.phtml => Frontend
+*
+*/
+?>
+
+<div id="token-modal" class="modal-container">
+	<form id="token-form" class="modal" action="<?= $requestUrl ?>/user/token" method="POST">
+		<a href="<?= $requestUrl ?>/" class="button-close">&#10005;</a>
+		<h3 class="form-title">VCARD Password Reset</h3>
+
+		<p>
+			Please enter your email address. You will receive a link to create a new password via email.
+		</p>
+
+		<div class="error-message hidden">
+			<p>
+				<span class="icon-login">
+					<?php if (isset($errorMessage)){
+						echo $errorMessage;
+					};?>
+				</span>
+			</p>
+		</div>
+
+		<label for="email">Your Email</label>
+		<input type="text" placeholder="" id="email" name="email" required/>
+
+		<input id="reset" name="reset_password" class="button reset-password" type="submit" value="Get New Password">
+
+		<a href="<?= $requestUrl ?>/" class="link-theme">back to home</a>
+
+	</form>
+
+</div>

@@ -1,0 +1,40 @@
+<?php
+/**
+* UserView.phtml => Frontend
+*
+* Create an administrator account
+*
+*/
+
+// If the user tries to delete required using devtool, this php formvalidation will do the trick
+include( ROOT_PATH . "/library/FormValidation.php");
+?>
+
+<div id="create-modal" class="modal-container">
+
+<form id="create-form" class="modal <?php if(empty($errorMessage)):?>animateBottomLogin<?php endif;?>" action="<?= $requestUrl ?>/user" method="POST">
+	<a href="<?= $requestUrl ?>/" class="button-close">&#10005;</a>
+<h3 class="form-title">Create <br />administrator account</h3>
+
+	<aside class="error-message hidden">
+		<p><?= $errorMessage ?></p>
+	</aside>
+
+	<label for="firstName">First name</label><span class="error"> * <?= $firstNameErr;?></span>
+	<input id="firstName" type="text" name="firstName" required value="">
+
+	<label for="lastName">Last name</label><span class="error"> * <?= $lastNameErr;?></span>
+	<input id="lastName" type="text" name="lastName" required value="">
+
+	<label for="email">E-mail</label><span class="error"> * <?= $emailErr;?></span>
+	<input id="email" type="text" name="email" required value="">
+
+	<label for="password">Password</label>
+	<input id="password" type="password" name="password" required>
+
+	<input class="button button-primary" type="submit" value="Create Account">
+	<a href="<?= $requestUrl ?>/" class="link-theme">back to home</a>
+
+</form>
+
+</div>

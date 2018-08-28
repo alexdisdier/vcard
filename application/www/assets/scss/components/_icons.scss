@@ -1,0 +1,49 @@
+/*--------------------------------------------------------------
+8.0 Icons
+--------------------------------------------------------------*/
+.icon {
+  width: 4%;
+  height: auto;
+  padding-right: em(4px);
+}
+
+.edit-icons {
+  padding-right: 8px;
+
+  svg {
+    fill: #fff;
+  }
+}
+
+.icon-login svg {
+  fill: $color-error-message !important;
+  width: 4% !important;
+}
+
+.icon-footer svg {
+  width: 24px;
+  height: auto;
+  padding-right: em(4px);
+  padding-left: em(4px);
+}
+
+.social-links {
+  margin-top: em(8px);
+  @media (min-width: $breakpoint-desktop) {
+    margin-top: em(16px);
+  }
+
+  a {
+    padding: 8px;
+  }
+
+  svg {
+    fill: #fff;
+    width: 24px;
+
+    &:hover {
+      @include transition(all, 0.4s, ease-in-out);
+      @include yPos(-1px);
+    }
+  }
+}

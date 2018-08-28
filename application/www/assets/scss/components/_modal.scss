@@ -1,0 +1,42 @@
+/*--------------------------------------------------------------
+7.0 Modal
+--------------------------------------------------------------*/
+.modal {
+  z-index: 1;
+  background: #FFFFFF;
+  padding: 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  /* Vertically center */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  opacity: 1;
+}
+
+.modal-container {
+  z-index: 4;
+  display: none;
+  padding-top: 100px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 16px 0 rgba(0, 0, 0, 0.1);
+}
+
+#create-modal,
+#login-modal,
+#token-modal {
+  display: block;
+}
+
+#notice {
+  padding: 20px;
+  background-color: green;
+  color: #fff;
+  margin-bottom: 15px;
+}

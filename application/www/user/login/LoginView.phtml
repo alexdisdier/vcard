@@ -1,0 +1,44 @@
+<?php
+/**
+* LoginView.phtml => Frontend Login Form with validation
+*
+*/
+
+// If the user tries to delete required using devtool, this php formvalidation will do the trick
+include( ROOT_PATH . "/library/FormValidation.php");
+?>
+
+<div id="login-modal" class="modal-container">
+
+	<form id="login-form" class="modal <?php if(empty($errorMessage)):?>animateBottomLogin<?php endif;?>" action="<?= $requestUrl ?>/user/login" method="POST">
+		<a href="<?= $requestUrl ?>/" class="button-close">&#10005;</a>
+		<h3 class="form-title">vcard login</h3>
+
+		<div class="error-message hidden">
+			<p>
+				<span class="icon-login">
+					<?php if (isset($errorMessage)){
+						echo $errorMessage;
+					};?>
+				</span>
+			</p>
+		</div>
+
+		<label for="email">Email</label>
+		<input type="text" placeholder="" id="email" name="email" value="<?= $email;?>"/>
+
+		<label for="password">Password</label>
+		<input type="password" placeholder="" id="password" name="password" value="" required/>
+
+		<div class="login-submit">
+			<input type="checkbox" class="remember-me" id="remember-me-checkbox" name="rememberme"/>
+			<label for="remember-me" id="remember-me-label">Remember Me</label>
+
+			<input id="login" class="button" type="submit" value="login">
+		</div>
+
+		<a href="<?= $requestUrl ?>/user/token" class="link-theme">Lost your password?</a>
+
+	</form>
+
+</div>

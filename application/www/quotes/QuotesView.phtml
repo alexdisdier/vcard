@@ -1,0 +1,39 @@
+<?php
+/**
+* QuotesView.phtml => Frontend
+*/
+$quotePlaceholder1 = "The Bard of Avon";
+$quotePlaceholder2 = "An Upstart Crow";
+$quotePlaceholder3 = "The Immortal Bard";
+?>
+
+<div id="quotes-input">
+
+	<?php foreach ($quotes as $quote): ?>
+		<span class="quotes">
+			<?php
+			if (!empty($quotes)) {
+				echo $quote['quote_content'];
+			};?>
+		</span>
+	<?php endforeach; ?>
+
+	<?php if (empty($quotes)):?>
+		<span class="quotes"><?= $quotePlaceholder1; ?></span>
+		<span class="quotes"><?= $quotePlaceholder2; ?></span>
+		<span class="quotes"><?= $quotePlaceholder3; ?></span>
+	<?php endif;?>
+
+</div>
+
+<div>
+	<span id="quotesDisplay">
+		<?php
+		if (!empty($quotes)) {
+			echo $quotes[0]['quote_content'];
+		}else {
+			echo $quotePlaceholder1;
+		}
+		?>
+	</span>
+</div>

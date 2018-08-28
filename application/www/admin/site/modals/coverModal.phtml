@@ -1,0 +1,17 @@
+<?php
+/**
+* coverModal.phtml => Backend
+*/
+?>
+
+<div id="js-cover-modal" class="modal-container">
+	<form  id="cover-form" class="modal fade-in" action="<?= $requestUrl ?>/admin/cover/" method="POST" enctype="multipart/form-data" >
+		<span class="button-close" onclick="document.getElementById('js-cover-modal').style.display='none';">&#10005;</span>
+		<h3 class="form-title">Update your cover photo<span class="form-subtitle">Best 1280 pixels wide by 800 pixels</span></h3>
+
+		<input id="cover" name="cover_img" type="file" accept=".png, .jpg, .jpeg">
+
+		<input class="button" type="submit" value="save">
+
+	</form>
+</div>

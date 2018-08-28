@@ -1,0 +1,77 @@
+<?php
+/**
+* header.phtml => Frontend
+*/
+?>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title><?php
+
+    if (!empty($metas[0]['site_title']) ) {
+      echo $metas[0]['site_title'];
+    };
+
+  ?></title>
+  <meta name="description" content="<?php
+
+    if (!empty($metas[0]['site_description']) ) {
+      echo $metas[0]['site_description'];
+    };
+
+  ?>">
+
+  <!-- ================= Favicon ================== -->
+  <link rel="icon" type="image/png" href="<?= $wwwUrl ?>/assets/images/<?php
+
+    if (!empty($metas[0]['site_icon']) ) {
+      echo $metas[0]['site_icon'];
+    } else {
+      echo 'default-favicon.png';
+    };
+
+  ?>">
+
+  <!-- ================= css ================== -->
+  <link href="<?= $wwwUrl ?>/style.min.css" type="text/css" rel="stylesheet" />
+
+  <!-- ================= Google Analytics ================== -->
+</head>
+
+<body id="<?php if($userSession->isAuthenticated() == true): ?>admin<?php endif;?>" class="">
+
+  <?php /* For user admin interface only */
+  if($userSession->isAuthenticated() == true): ?>
+
+    <?php
+        include( ROOT_PATH . "/application/www/admin/user/meta/MetaView.phtml");
+    ?>
+
+    <div class="admin-bar">
+      <!-- some code only available to administrator -->
+      <p onclick="openNav()" class="site-identity">&#9776; Site Identity</p>
+      <p class="user-name">Hello <strong><?= $userSession->getFullName() ?></strong> !</p>
+      <a class="admin-bar-log-out" href="<?= $requestUrl ?>/user/logout">Log Out</a>
+    </div>
+  <?php endif; ?>
+  <header>
+    <h1><?php
+
+      if (!empty($metas[0]['site_title']) ) {
+        echo $metas[0]['site_title'];
+      };
+
+    ?></h1>
+  </header>
+
+
+  <?php /* For user admin interface only */
+if($userSession->isAuthenticated() == true): ?>
+  <div id="main"><!-- canvas -->
+  <?php endif;?>
+
+  <main id="vcard-main" class="wrap">

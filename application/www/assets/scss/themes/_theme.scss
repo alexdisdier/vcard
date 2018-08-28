@@ -1,0 +1,77 @@
+/*--------------------------------------------------------------
+17.0 Theme
+--------------------------------------------------------------*/
+body {
+  background-image: linear-gradient(to bottom, #ece9e6, #f2eeed, #f6f4f4, #faf9fa, #ffffff);
+  background-repeat: no-repeat;
+  line-height: 1.5;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+main {
+  border-radius: em(15px);
+  box-shadow: 0 15px 25px 0 rgba(0,0,0,.1);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.content {
+  padding: em(45px) em(16px) em(50px);
+  background-color: #fff;
+  @media (min-width: $breakpoint-desktop) {
+    padding: em(45px) em(50px) em(50px);
+  }
+}
+
+.content-body {
+  margin-bottom: 16px;
+}
+
+.content h3 {
+  display: inline-block;
+  margin-bottom: em(16px);
+  font-weight: 400;
+
+  span {
+    color: #728187;
+  }
+}
+
+.content p {
+  margin-bottom: em(16px);
+}
+
+.content textarea {
+  width: 100%;
+}
+
+.link-theme:hover {
+  opacity: 0.8;
+}
+
+.link-theme:after {
+  display: inline-block;
+  content: '\a0'; // dash after link in about
+  position: relative;
+  left: 8px;
+  top: 8px;
+  width: 16px;
+  height: 7px;
+  border-bottom: 1px solid $color-link;
+  transition: width 0.5s ease;
+}
+
+.link-theme:hover:after {
+  width: 32px;
+  transition: all 0.5s ease;
+}
+
+.link-theme {
+  color: $color-link;
+  cursor: pointer;
+}

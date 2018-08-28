@@ -1,0 +1,101 @@
+/**!
+Theme: vcard
+Author: Alexandre Disdier
+Author URI: https://alexdisdier.fr/
+Description: Simple vcard cms with profile and cover photo
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Cover default photo Credit: Matt Riches on Unsplash
+
+This theme is licensed under the GPL.
+
+*/
+/* =========================================
+===  CSS TABLE CONTENT  ====
+============================================
+
+1.0   Normalize & Sanitize
+
+BASE
+----
+2.0   Fonts
+3.0   typography
+4.0   Base Style
+
+COMPONENTS
+----------
+5.0   Animations
+6.0   Buttons
+7.0   Modal
+8.0   Icons
+9.0   Images
+10.0  Cover
+11.0  Navigation
+
+LAYOUT
+----------
+11.0  Header
+12.0  Footer
+13.0  Grid
+14.0  Forms
+
+PAGES
+----------
+15.0  404
+
+THEMES
+----------
+16.0  Admin
+17.0  Theme
+
+============================================
+===  END  ====
+============================================ */
+
+/* ----------------------------------------------------------------------------
+ * Helpers/ Utils (Mixins & Variables)
+ * ------------------------------------------------------------------------- */
+@import "helpers/functions";
+@import "helpers/mixins";
+@import "helpers/variables";
+/* ----------------------------------------------------------------------------
+ * Base (also called Modules)
+ * ------------------------------------------------------------------------- */
+/* Normalize & Santize */
+@import "vendors/sanitize";
+@import "vendors/reset";
+@import "base/fonts";
+@import "base/typography";
+@import "base/base";
+/* ----------------------------------------------------------------------------
+ * Components (also called Partials)
+ * ------------------------------------------------------------------------- */
+@import "components/animations";
+@import "components/buttons";
+@import "components/modal";
+@import "components/icons";
+@import "components/images";
+@import "components/cover";
+@import "components/navigation";
+/* ----------------------------------------------------------------------------
+ * Layout
+ * ------------------------------------------------------------------------- */
+@import "layout/header";
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/forms";
+/* ----------------------------------------------------------------------------
+ * Pages
+ * ------------------------------------------------------------------------- */
+@import "pages/404";
+/* ----------------------------------------------------------------------------
+ * Themes
+ * ------------------------------------------------------------------------- */
+@import "themes/admin";
+@import "themes/theme";
+/* ----------------------------------------------------------------------------
+ * Vendors Third-party
+ * ------------------------------------------------------------------------- */
+@import "vendors/grid.scss";

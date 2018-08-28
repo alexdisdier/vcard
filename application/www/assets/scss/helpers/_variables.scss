@@ -1,0 +1,86 @@
+/*--------------------------------------------------------------
+  Variables
+----------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Base
+2.0 Colors
+3.0 Fonts
+4.0 Grid and Layout
+5.0 Breakpoints
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Base
+--------------------------------------------------------------*/
+$font-size-base: 16px;
+$font-size-h1: floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2: floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3: ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil(($font-size-base * 0.85)) !default; // ~12px
+$line-height-base: 1.61;
+
+/*--------------------------------------------------------------
+2.0 Colors
+--------------------------------------------------------------*/
+
+$color-background: #fff;
+$color-text: #222;
+$color-link: #dfb948;
+$color-btn: #728187;
+$color-btn-background: #728187;
+$color-input: #728187;
+$color-input-background: #f2f2f2;
+$color-error-message: #f62405;
+
+/*--------------------------------------------------------------
+3.0 Fonts
+--------------------------------------------------------------*/
+
+$font-family-primary: 'Roboto', sans-serif;
+$font-family-secondary: 'Roboto', sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700; // Base Font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+$fixed-line-height: $line-height-base; // Headings
+$header-font-weight: $font-weight-bold;
+
+/*--------------------------------------------------------------
+5.0 Breakpoints
+--------------------------------------------------------------*/
+
+$breakpoint-sm-tablet: 30em;
+/*
+@media (min-width: $breakpoint-sm-tablet) {
+}
+ 480px */
+$breakpoint-tablet: 48em;
+/*
+@media (min-width: $breakpoint-tablet) {
+}
+768px */
+$breakpoint-desktop: em(1024px);
+/*
+@media (min-width: $breakpoint-desktop) {
+}
+1024px */
+$breakpoint-lg-desktop: 67em;
+/*
+@media (min-width: $breakpoint-lg-desktop) {
+}
+1072px */
+$breakpoint-xl-desktop: 79em;
+/*
+@media (min-width: $breakpoint-xl-desktop) {
+}
+1264px */
+
+/*--------------------------------------------------------------
+6.0 miscellanous
+--------------------------------------------------------------*/
+$height-navigation: 96px;

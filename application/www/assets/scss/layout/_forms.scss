@@ -1,0 +1,206 @@
+/*--------------------------------------------------------------
+14.0 Forms
+--------------------------------------------------------------*/
+
+/*--------------------*/
+/* General Form style */
+/*--------------------*/
+
+input,
+textarea {
+	// font-family: $font-family-primary;
+	outline: 0;
+	background: $color-input-background;
+	width: 100%;
+	border: 0;
+	margin: em(0px) em(0px) em(15px);
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+input[type="text"],
+input[type="url"] {
+	width: 100%;
+	color: $color-input;
+}
+
+input[type="radio"] {
+	width: auto;
+}
+
+.form-title {
+	display: block;
+	padding-bottom: em(16px);
+	font-size: em(24px);
+	text-align: center;
+}
+
+.form-subtitle {
+	display: block;
+	font-size: em(8px);
+}
+
+#cover-form,
+#create-form,
+#login-form,
+#name-form,
+#photo-form,
+#token-form {
+	height: auto;
+	width: 100%;
+	max-width: 360px;
+}
+/*------------*/
+/* About Form */
+/*------------*/
+
+/* left side */
+.content input[type="url"],
+.content textarea {
+	margin-top: em(12px);
+}
+
+#job-availability-label {
+	display: block;
+}
+
+.info-list input[type="text"] {
+	margin-top: em(12px);
+}
+
+.content li {
+	// margin-top: em(8px);
+	margin-bottom: 1em;
+}
+
+.content li .info-item {
+	display: inline-block;
+	min-width: em(120px);
+}
+
+#admin .info-item {
+	margin-bottom: 1em;
+}
+
+.content li .info-item-value {
+	opacity: 0.6;
+}
+
+#portfolio_url {
+	margin-top: 1em;
+}
+/* right side */
+.radio-container {
+	margin-top: 1em;
+	padding: em(15px);
+}
+
+/*-------------*/
+/* Login Form */
+/*-------------*/
+
+.login-submit {
+	margin-top: em(2px);
+	margin-bottom: em(40px);
+	@include flexbox();
+	@include flex-direction(row);
+	@include align-items(baseline);
+
+	#remember-me-label {
+		@include flex-grow(1);
+	}
+
+	#remember-me-checkbox {
+		margin-bottom: 0;
+		margin-right: em(8px);
+	}
+
+	#login {
+		margin-bottom: 0;
+	}
+}
+
+#login,
+#remember-me-checkbox,
+#remember-me-label {
+	display: inline-block;
+	width: auto;
+}
+/*-------------*/
+/* Quotes Form */
+/*-------------*/
+
+#quotes-form {
+	max-width: 480px;
+	text-shadow: none;
+
+	.social-flex {
+		@include flexbox();
+		@include flex-direction(row);
+	}
+	caret-color: $color-btn-background;
+}
+
+/*-------------------*/
+/* Social Media Form */
+/*-------------------*/
+
+#social-form {
+	width: 100%;
+	top: 80%;
+	max-width: 480px;
+	text-shadow: none;
+
+	.social-flex {
+		@include flexbox();
+		@include flex-direction(row);
+
+		input,
+		label {
+			width: 50%;
+		}
+	}
+
+	input[type="text"],
+	label {
+		@include flex-grow(1);
+		margin-bottom: em(15px);
+		padding: em(15px) em(16px) em(15px) em(0px);
+		text-align: left;
+		color: #222;
+		background: transparent;
+	}
+	caret-color: $color-btn-background;
+}
+
+/*----------*/
+/* Seo Form */
+/*----------*/
+
+#seo-form {
+	padding: em(16px);
+
+	label {
+		color: #fff;
+	}
+
+	#site-icon {
+	  background: transparent;
+	  padding:0;
+	  color: #fff;
+	}
+
+	span {
+		display: block;
+		padding-bottom: em(8px);
+		font-size: $font-size-base/1.5;
+		color: #fff;
+	}
+
+	input,
+	textarea {
+		padding: em(8px);
+		font-size: em(10px);
+	}
+}

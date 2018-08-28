@@ -1,0 +1,123 @@
+/*--------------------------------------------------------------
+6.0 Buttons
+--------------------------------------------------------------*/
+.button {
+  // All buttons (ex: inside modal)
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-color: $color-link;
+  border: 1px solid $color-link;
+  width: 100%;
+  padding: 15px;
+  color: $color-background;
+  font-size: 14px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
+
+  &:active,
+  &:focus,
+  &:hover,
+  &:visited {
+    background-color: $color-background;
+    color: $color-link;
+  }
+}
+
+.button-close {
+  // close X btn for modal
+  position: absolute;
+  top: em(8px);
+  right: em(16px);
+  color: #222;
+
+  &:active,
+  &:focus,
+  &:hover,
+  &:visited {
+    color: $color-btn-background;
+    cursor: pointer;
+  }
+}
+
+.form-about .button {
+  display: inline-block;
+  width: auto;
+  padding: em(16px);
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: em(32px);
+    float: right;
+    clear: both;
+  }
+}
+
+.button-image {
+  display: block;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  padding: em(16px);
+  text-shadow: none;
+  background-color: rgba(114,129,135,.5);
+  color: #fff;
+
+  &:active,
+  &:focus,
+  &:hover,
+  &:visited {
+    background-color: rgba(114,129,135,.8);
+  }
+}
+
+.button-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: em(16px);
+  text-shadow: none;
+  background-color: rgba(114,129,135,.5);
+  color: #fff;
+
+  &:active,
+  &:focus,
+  &:hover,
+  &:visited {
+    background-color: rgba(114,129,135,.9);
+  }
+}
+
+.reset-password {
+  display: block;
+}
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+.js-hidden {
+  // Interacts with the DOM javascript
+  display: none;
+  transition: all 1s linear;
+  transition-property: display;
+  transition-duration: 2s;
+}
+
+.js-show {
+  // Interacts with the DOM javascript
+  display: block;
+  transition: all 1s linear;
+  transition-property: display;
+  transition-duration: 2s;
+}

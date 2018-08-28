@@ -1,0 +1,16 @@
+/*--------------------------------------------------------------
+9.0 Images
+--------------------------------------------------------------*/
+.container-image {
+  position: relative;
+  // max-width: em(200px);
+  @media (min-width: $breakpoint-tablet) {
+    margin-bottom: em(-75px);
+    max-width: em(280px);
+  }
+
+  img {
+    border: 3px solid #fff;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,.1);
+  }
+}

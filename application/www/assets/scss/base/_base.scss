@@ -1,0 +1,70 @@
+/*--------------------------------------------------------------
+4.0 Base Style
+--------------------------------------------------------------*/
+body {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
+  color: $color-text;
+  background-color: $color-background;
+  font-size: 100%;
+  font-size: em($font-size-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: inline-block;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-light;
+  color: $color-text;
+}
+
+h1 {
+  font-size: $font-size-base*2;
+  font-size: em($font-size-base*2);
+  // font-size: 10vw;
+}
+
+a {
+  color: $color-link;
+  font-weight: $font-weight-light;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:visited {}
+}
+
+a.dotted-link {
+  border-bottom: 1px dotted #778492;
+  color: $color-link;
+}
+
+a.dotted-link:hover {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+p {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-light;
+  color: $color-text;
+  line-height: $line-height-base;
+}
+
+strong {
+  font-weight: bold;
+}

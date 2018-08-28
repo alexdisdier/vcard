@@ -1,0 +1,40 @@
+<?php
+/**
+* SocialView.phtml => Backend
+*
+* Insert all the social media icons with a function I wrote in
+* ./library/functions.php
+*
+*/
+
+?>
+
+  <div class="social-links">
+    <?php foreach ($socials as $social) :?>
+      <a href="<?= $social['social_url'];?>" title="<?= $social['social_name'];?>" target="_blank">
+        <?php social_media($social['social_name']);?>
+      </a>
+    <?php endforeach; ?>
+    <?php if (empty($socials)){
+      echo "<a href='https://www.facebook.com/WilliamShakespeareAuthor/' title='facebook' target='_blank'>";
+      social_media('facebook');
+      echo "</a>";
+
+      echo "<a href='https://twitter.com/shakespeare' title='facebook' target='_blank'>";
+      social_media('twitter');
+      echo "</a>";
+
+      echo "<a href='https://www.instagram.com/explore/tags/shakespeare/?hl=en' title='instagram' target='_blank'>";
+      social_media('instagram');
+      echo "</a>";
+    };?>
+    <a class="edit-icons js-modal-link" onclick="document.getElementById('js-social-modal').style.display='block';"
+    href="#">
+    <?php icon('pen');?>
+    </a>
+  </div><!-- .social-links -->
+
+  <!-- ============ MODAL PATH =========== -->
+
+  <!-- Modal for the social media -->
+  <?php include( ROOT_PATH . "/application/www/admin/social/modals/socialModal.phtml");?>

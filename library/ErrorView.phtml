@@ -1,0 +1,30 @@
+<?php
+/**
+ * header.php template
+ */
+
+// If the user tries to enter something in the url that doesn't exist,
+// he will be redirected to homepage
+// Uncomment once you're done with development
+ header("HTTP/1.1 301 Moved Permanently");
+ header("Location: ". $requestUrl );
+ exit();
+
+include( ROOT_PATH . "/application/www/header.phtml");
+?>
+
+  <div class="container sections-wrapper error-code" style="color: #fff">
+    <img src="<?= $wwwUrl ?>/assets/images/default-favicon.png" alt="Fatal Error">
+    <h1 class="fatal">Error in your code</h1>
+    <p>
+      <?= $_fatalErrorMessage ?>
+    </p>
+  </div>
+
+
+<?php
+/**
+ * header.php template
+ */
+include( ROOT_PATH . "/application/www/footer.phtml");
+?>

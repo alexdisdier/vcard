@@ -1,0 +1,53 @@
+<?php
+/**
+* MetaView.phtml => Backend
+*
+* Create the meta tags
+*
+*/
+?>
+
+<div id="mySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10005;</a>
+	<form id="seo-form" class="" action="<?= $requestUrl ?>/admin/user/meta" method="POST" enctype="multipart/form-data">
+		<!-- enctype="multipart/form-data" in order to upload file -->
+		<label for="site-title">site&nbsp;title</label>
+		<span title="site title">(Best&nbsp;under&nbsp;60&nbsp;characters)</span>
+		<input id="site-title" type="text" name="site_title" required value="<?php
+
+			// Check if the table is not empty
+			if (!empty($metas[0]['site_title']) ) {
+				echo $metas[0]['site_title'];
+			};
+
+		?>">
+
+		<label for="site-description">site&nbsp;description</label>
+		<span title="site title description">(Best&nbsp;between&nbsp;50&nbsp;/300&nbsp;characters)</span>
+		<textarea id="site-description" name="site_description" required value="" rows="4" cols="80"><?php
+
+			// Check if the table is not empty
+			if (!empty($metas[0]['site_description']) ) {
+				echo $metas[0]['site_description'];
+			};
+
+		?></textarea>
+
+		<label for="site-icon">site&nbsp;icon</label>
+		<span title="site icon subtitle">(180&nbsp;pixels&nbsp;by&nbsp;180&nbsp;pixels&nbsp;recommended)</span>
+		<input id="site-icon" name="site_icon" type="file" accept=".png, .jpg, .jpeg">
+
+		<label for="google-analytics">google&nbsp;analytics&nbsp;code</label>
+		<textarea id="google-analytics" name="google_analytics" value="" rows="4" cols="80"><?php
+
+			// Check if the table is not empty
+			if (!empty($metas[0]['google_analytics']) ) {
+				echo $metas[0]['google_analytics'];
+			};
+
+		?></textarea>
+
+		<input class="button button-primary" type="submit" value="submit">
+
+	</form>
+</div>

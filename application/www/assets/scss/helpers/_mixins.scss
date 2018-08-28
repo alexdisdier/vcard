@@ -1,0 +1,533 @@
+/*--------------------------------------------------------------
+>>> Mixins
+----------------------------------------------------------------
+source:
+** http://www.developerdrive.com/2014/11/15-essential-sass-mixins/
+** https://gist.github.com/charlieschwabacher/1096739
+** https://github.com/ismamz/sass-starter-kit/blob/master/sass/style.scss
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Cross browser CSS3 mixins
+2.0 Box Sizing
+3.0 Opacity
+4.0 Column-width
+5.0 Circle
+6.0 FontFace
+7.0 Font Size
+8.0 Box-shadow
+9.0 Xpos
+10.0 Vertical Align
+11.0 Flexbox
+12.0 Flex-direction
+13.0 Gradient
+14.0 Breakpoints
+15.0 Miscellanous
+Miscellanous
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Cross browser CSS3 mixins
+--------------------------------------------------------------*/
+@mixin box-shadow($left, $top, $radius, $color) {
+	box-shadow: $left $top $radius $color;
+	-webkit-box-shadow: $left $top $radius $color;
+	-moz-box-shadow: $left $top $radius $color;
+}
+
+@mixin transition($property, $duration, $easing: linear) {
+	transition: $property $duration $easing;
+	-webkit-transition: $property $duration $easing;
+	-moz-transition: $property $duration $easing;
+}
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
+@mixin border-radius($topleft, $topright, $bottomright, $bottomleft) {
+	border-top-left-radius: $topleft;
+	border-top-right-radius: $topright;
+	border-bottom-right-radius: $bottomright;
+	border-bottom-left-radius: $bottomleft;
+	-webkit-border-top-left-radius: $topleft;
+	-webkit-border-top-right-radius: $topright;
+	-webkit-border-bottom-right-radius: $bottomright;
+	-webkit-border-bottom-left-radius: $bottomleft;
+	-moz-border-radius-topleft: $topleft;
+	-moz-border-radius-topright: $topright;
+	-moz-border-radius-bottomright: $bottomright;
+	-moz-border-radius-bottomleft: $bottomleft;
+}
+
+@mixin gradient($color1, $color2) {
+	background-color: $color1;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$color1}, endColorstr=#{$color2});
+	background-image: -moz-linear-gradient(center top, $color1, $color2);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2));
+}
+
+/*--------------------------------------------------------------
+2.0 BOX-SIZING
+--------------------------------------------------------------*/
+/* This mixin sets box-sizing and handle the prefixes once:
+div {
+ @include box-sizing(border-box);
+ } */
+
+@mixin box-sizing($type)
+ {
+ -webkit-box-sizing:$type;
+ -moz-box-sizing:$type;
+ box-sizing:$type;
+ }
+
+/*--------------------------------------------------------------
+3.0 Opacity
+--------------------------------------------------------------*/
+/* Frequently, you want to set not only vendor prefixes but use different syntax altogether. This mixin sets opacity for current browsers and older IE:
+div {
+ @include opacity(0.5);
+ } */
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+
+/*--------------------------------------------------------------
+4.0 Column-width
+--------------------------------------------------------------*/
+/* column-width is one of the best examples of a mixin taking care of browser prefixes:
+div {
+ @include column-width(150px);
+ } */
+
+@mixin column-width ( $value: 150px ) {
+  -webkit-column-width: $value;
+  -moz-column-width: $value;
+  column-width: $value;
+ }
+
+/*--------------------------------------------------------------
+5.0 Circle
+--------------------------------------------------------------*/
+/* Once you’ve set up a mixin like border-radius, you can use it in other mixins, in this case to make a rectangular div circular:
+div {
+ @include circle();
+ } */
+
+@mixin circle
+{
+@include border-radius(100%);
+}
+
+/*--------------------------------------------------------------
+6.0 FontFace
+--------------------------------------------------------------*/
+/* source: https://github.com/magnetikonline/sass-boilerplate/blob/master/fontface.scss */
+
+@mixin fontFace($family,$src,$style: normal,$weight: normal) {
+	@font-face {
+		font-family: $family;
+		src: url('#{$src}.eot'); // IE9 compat
+		src: url('#{$src}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+			url('#{$src}.woff') format('woff'), // standards
+			url('#{$src}.ttf') format('truetype'), // Safari, Android, iOS
+			url('#{$src}.svg##{$family}') format('svg'); // legacy iOS
+
+		font-style: $style;
+		font-weight: $weight;
+	}
+}
+
+/*--------------------------------------------------------------
+7.0 Font Size
+--------------------------------------------------------------*/
+/* This mixin sets the font-size in pixels, then overwrites that by setting it in rems. rems will only be used if the browser in question supports them:
+div {
+ @include font-size(14px);
+ } */
+
+@mixin font-size($size) {
+  font-size:$size;
+  font-size: ($size / 16px) * 1rem;
+}
+
+/*--------------------------------------------------------------
+8.0 Box-shadow
+--------------------------------------------------------------*/
+/* This great mixin lets you specify the values of a box-shadow once, without worrying about vendor prefixes:
+div {
+ @include box-shadow(8px, 8px);
+ } */
+
+@mixin box-shadow( $h: 10px , $v: 10px , $b: 0px , $s: 0px , $c: #000000 ) {
+  -webkit-box-shadow: $h $v $b $s $c;
+  -moz-box-shadow: $h $v $b $s $c;
+  box-shadow: $h $v $b $s $c;
+}
+
+/*--------------------------------------------------------------
+9.0 xPos
+--------------------------------------------------------------*/
+/* This mixin provides a shorthand for positioning an element along the x axis:
+div {
+ @include xPos(50px);
+ @include yPos(50px);
+ } */
+
+@mixin xPos($x) {
+  -webkit-transform:translateX($x);
+  -moz-transform:translateX($x);
+  -ms-transform:translateX($x);
+  transform:translateX($x);
+}
+
+@mixin yPos($y) {
+  -webkit-transform:translateY($y);
+  -moz-transform:translateY($y);
+  -ms-transform:translateY($y);
+  transform:translateY($y);
+}
+
+/*--------------------------------------------------------------
+10.0 Vertical Align
+--------------------------------------------------------------*/
+/* Vertically aligning elements is challenging even with CSS, but this mixin gives you a nice simple solution:
+div {
+ @include vertical-align();
+ } */
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/*--------------------------------------------------------------
+11.0 Flexbox
+--------------------------------------------------------------*/
+/* Sass mixins are great for handling settings like flexbox, that have had several different syntaxes published at different times.
+div {
+ @include flexbox();
+ } */
+
+@mixin flexbox
+{
+  display:-webkit-box; // old
+  display:-moz-box; // old
+  display:-ms-flexbox; // ie
+  display:-webkit-flex; // new
+  display:flex; // new
+}
+
+/*--------------------------------------------------------------
+12.0 Flex-direction
+--------------------------------------------------------------*/
+/* Mixins also allow us to use Sass’ @if, @else if, and @else statements to combine what could have been two separate mixins into one:
+div {
+ @include flex-direction(column);
+ } */
+
+@mixin flex-direction($direction) {
+  @if $direction == column {
+    -webkit-flex-direction:vertical;
+    -moz-flex-direction:vertical;
+    -ms-flex-direction:column;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+  } @else {
+    -webkit-flex-direction:horizontal;
+    -moz-flex-direction:horizontal;
+    -ms-flex-direction:row;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    }
+}
+
+/*--------------------------------------------------------------
+13.0 Flex-grow
+--------------------------------------------------------------*/
+// - applies to: flex items
+// <number>
+@mixin flex-grow($grow) {
+  -webkit-flex-grow: $grow;
+     -moz-flex-grow: $grow;
+      -ms-flex-grow: $grow;
+          flex-grow: $grow;
+}
+
+/*--------------------------------------------------------------
+14.0 justify-content
+--------------------------------------------------------------*/
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+     -moz-justify-content: $justify;
+      -ms-justify-content: $justify;
+          justify-content: $justify;
+            -ms-flex-pack: $justify;
+}
+
+/*--------------------------------------------------------------
+15.0 align-content
+--------------------------------------------------------------*/
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch
+@mixin align-content($align) {
+  -webkit-align-content: $align;
+     -moz-align-content: $align;
+      -ms-align-content: $align;
+          align-content: $align;
+}
+
+/*--------------------------------------------------------------
+16.0 align-items
+--------------------------------------------------------------*/
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+@mixin align-items($align) {
+  -webkit-align-items: $align;
+     -moz-align-items: $align;
+      -ms-align-items: $align;
+          align-items: $align;
+}
+
+/*--------------------------------------------------------------
+17.0 align-self
+--------------------------------------------------------------*/
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch
+@mixin align-self($align) {
+  -webkit-align-self: $align;
+     -moz-align-self: $align;
+      -ms-align-self: $align;
+          align-self: $align;
+}
+
+/*--------------------------------------------------------------
+18.0 Gradient
+--------------------------------------------------------------*/
+/* We should always try to keep our code simple, but when necessary mixins can be huge. This mixin allows us to create different kinds of gradient for all browsers, using just three values:
+div {
+ @include gradient(#ff00ff, #ff00cc, vertical);
+}*/
+
+@mixin gradient($start-color, $end-color, $orientation) {
+ background: $start-color;
+ @if $orientation == vertical {
+   // vertical
+   background: -moz-linear-gradient(top,  $start-color 0%, $end-color 100%);
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$end-color));
+   background: -webkit-linear-gradient(top,  $start-color 0%,$end-color 100%);
+   background: -o-linear-gradient(top,  $start-color 0%,$end-color 100%);
+   background: -ms-linear-gradient(top,  $start-color 0%,$end-color 100%);
+   background: linear-gradient(to bottom,  $start-color 0%,$end-color 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=0 );
+ } @else if $orientation == horizontal {
+   // horizontal
+   background: -moz-linear-gradient(left,  $start-color 0%, $end-color 100%);
+   background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start-color), color-stop(100%,$end-color));
+   background: -webkit-linear-gradient(left,  $start-color 0%,$end-color 100%);
+   background: -o-linear-gradient(left,  $start-color 0%,$end-color 100%);
+   background: -ms-linear-gradient(left,  $start-color 0%,$end-color 100%);
+   background: linear-gradient(to right,  $start-color 0%,$end-color 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+ } @else {
+   // radial
+   background: -moz-radial-gradient(center, ellipse cover,  $start-color 0%, $end-color 100%);
+   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$start-color), color-stop(100%,$end-color));
+   background: -webkit-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+   background: -o-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+   background: -ms-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+   background: radial-gradient(ellipse at center,  $start-color 0%,$end-color 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+  }
+}
+
+/*--------------------------------------------------------------
+14.0 Breakpoints
+--------------------------------------------------------------*/
+
+// Mobile breakpoints
+// ======================================
+/*
+p {
+  font-size: 16px;
+
+  @include tablet {
+    font-size: 18px;
+  }
+
+  @include desktop {
+    font-size: 20px;
+  }
+}
+*/
+
+@mixin tablet {
+	@media screen and (min-width: $breakpoint-tablet) {
+		@content;
+	}
+}
+
+@mixin mobile {
+  @media screen and (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+
+/*--------------------------------------------------------------
+Miscellanous
+--------------------------------------------------------------*/
+
+// Push auto to quickly center an element
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+// Clearfix mixin
+// ======================================
+
+@mixin cfx() {
+  &:after {
+    display: table;
+    clear: both;
+    content: "";
+	}
+}
+
+// Reset lists
+// include this mixin for unstyled lists
+// ======================================
+
+@mixin reset-list() {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Ghost Button Mixin!
+// =============================================================================
+
+@mixin ghost-button($ghost-button-color, $ghost-button-height, $ghost-button-width, $ghost-button-border, $ghost-button-display) {
+  border: $ghost-button-border;
+  border-color: $ghost-button-color;
+  color: $ghost-button-color;
+	display: $ghost-button-display;
+	height: $ghost-button-height;
+	line-height: $ghost-button-height;
+	margin-top: $ghost-button-height / 3;
+	text-align: center;
+  text-decoration: none;
+	width: $ghost-button-width;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -o-transition: .2s;
+   transition: .2s;
+
+	&:hover {
+		background: $ghost-button-color;
+
+     		@if $ghost-button-color == #FFFFFF {
+      			color: #000000;
+      		}
+
+      	@else {
+      			color: #FFFFFF;
+      		}
+  	}
+}
+
+// usage
+
+// @include keyframes(slide-down) {
+//   0% { opacity: 1; }
+//   90% { opacity: 0; }
+// }
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+
+// usage
+// .element {
+//   width: 100px;
+//   height: 100px;
+//   background: black;
+//   @include animation('slide-down 5s 3');
+// }
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// usage
+// a {
+//   color: gray;
+//   @include transition(color .3s ease);
+//   &:hover {
+//     color: black;
+//   }
+// }
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}

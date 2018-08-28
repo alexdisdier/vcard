@@ -1,0 +1,16 @@
+// https://hugogiraudel.com/2013/08/12/sass-functions/
+// This allows us to either include the px unit or not in the function call.
+
+$font-size-base: 16;
+
+@function em($pixels, $context: $font-size-base) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}

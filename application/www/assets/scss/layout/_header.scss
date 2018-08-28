@@ -1,0 +1,59 @@
+/*--------------------------------------------------------------
+11.0 Header
+--------------------------------------------------------------*/
+header {
+  padding: 16px;
+  text-align: center;
+}
+
+header h1 {
+  display: none;
+}
+
+.vcard-header {
+  padding: em(50px);
+  // inlined so user can choose
+  // background: url("assets/images/paris-by-night.jpg") no-repeat center;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px #222;
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  opacity: 0.4;
+}
+
+.title-container h2 {
+  margin-top: em(24px);
+  margin-bottom: em(8px);
+  font-size: em(32px);
+  color: #fff;
+  @media (min-width: $breakpoint-desktop) {
+    margin-top: em(32px);
+    font-size: em(40px);
+  }
+}
+
+#quotesDisplay {
+  margin-bottom: em(16px);
+  font-size: em(16px);
+  color: #fff;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: em(24px);
+  }
+}
+
+#quotes-input {
+  display: none;
+}

@@ -1,0 +1,27 @@
+/*--------------------------------------------------------------
+13.0 Personal Grid
+--------------------------------------------------------------*/
+
+.wrap {
+  width: 90%;
+  margin: 0 auto;
+  // padding-top: em($multiple-of-8*13);
+  @media (min-width: $breakpoint-desktop) {
+    width: 80%;
+  }
+  @media (min-width: $breakpoint-xl-desktop) {
+    width: 1024px;
+  }
+}
+
+.col-inner {
+  margin-bottom: em(32px);
+  @media (min-width: $breakpoint-desktop) {
+    margin-bottom: 0;
+  }
+}
+
+// [class*=' col-'] {
+//   padding-left: 0 !important;
+//   padding-right: 0 !important;
+// }

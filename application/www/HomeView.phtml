@@ -1,0 +1,37 @@
+<?php
+/**
+* This content is what you see on the homepage.
+*/
+?>
+
+<!-- Notifications Alerts -->
+<?php if($flashBag->hasMessages() == true): ?>
+  <aside id="notice" class="notice fade-out">
+    <?php foreach($flashBag->fetchMessages() as $message): ?>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?= $message ?>
+    <?php endforeach ?>
+  </aside>
+<?php endif; ?>
+
+<?php /* Check if user is logged in and return the corresponding view */
+if($userSession->isAuthenticated() == false) {
+  require ('site/SiteView.phtml');
+}
+else {
+  require ('admin/site/SiteView.phtml');
+}
+?>
+
+<div class="content">
+
+  <?php /* Check if user is logged in and return the corresponding view */
+  if($userSession->isAuthenticated() == false) {
+    require ('about/AboutView.phtml');
+  }
+  else {
+    require ('admin/about/AboutView.phtml');
+  }
+  ?>
+
+</div><!-- .content -->

@@ -1,0 +1,25 @@
+<?php
+/**
+* nameModal.phtml => Backend
+*/
+?>
+
+<div id="js-name-modal" class="modal-container">
+	<form  id="name-form" class="modal fade-in" action="<?= $requestUrl ?>/admin/site/" method="POST">
+		<span class="button-close" onclick="document.getElementById('js-name-modal').style.display='none';">&#10005;</span>
+		<h3 class="form-title">Fill in your name<span class="form-subtitle"></span></h3>
+
+		<label for="first_name">First Name</label>
+		<input id="first_name" type="text" placeholder="William" name="first_name" size="10" value="<?php
+		if (!empty($sites[0]['first_name'] ) ){
+			echo $sites[0]['first_name'];
+		};?>" />
+		<label for="last_name">Last Name</label>
+		<input id="last_name" type="text" placeholder="Shakespeare" name="last_name" size="10" value="<?php
+		if (!empty($sites[0]['last_name'] ) ){
+			echo $sites[0]['last_name'];
+		};?>" />
+		<input class="button" type="submit" value="save">
+
+	</form>
+</div>

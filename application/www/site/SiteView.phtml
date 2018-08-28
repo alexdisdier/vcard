@@ -1,0 +1,71 @@
+<?php
+/**
+* SiteView.phtml => Frontend
+*/
+?>
+
+<?php if (!empty($cover[0]['cover_img'])):?>
+<div class="vcard-header overlay" style="background: url('<?= $wwwUrl ?>/assets/images/<?= $cover[0]['cover_img']?>') no-repeat center;">
+<?php endif;?>
+
+<?php if (empty($cover[0]['cover_img'])):?>
+<div class="vcard-header overlay" style="background: url('<?= $wwwUrl ?>/assets/images/default-cover.jpg') no-repeat center;">
+<?php endif;?>
+
+<div class="row">
+
+	<!-- vcard photo -->
+	<div class="col-sm-4 col-md-4 col-lg-4">
+		<div class="container-image">
+			<img src="<?= $wwwUrl ?>/assets/images/<?php
+			if (!empty($profile[0]['profile_img']) ){
+				echo $profile[0]['profile_img'];
+			}
+			else {
+				echo "default-profile.jpg";
+			}
+			?>" alt="<?php
+			if (!empty($sites[0]['first_name'] ) ){
+				echo $sites[0]['first_name'];
+			}else{
+				echo 'shakespeare';
+			};?> <?php
+			if (!empty($sites[0]['last_name'] ) ){
+				echo $sites[0]['last_name'];
+			};?>" />
+		</div>
+	</div>
+	<!-- col-* -->
+
+	<!-- vcard title -->
+	<div class="col-sm-8 col-md-8 col-lg-8">
+		<div class="title-container">
+			<h2>
+				<?php
+				if (!empty($sites[0]['first_name'] ) ){
+					echo $sites[0]['first_name'];
+				} else {
+					echo "William";
+				};?>
+				<?php
+				if (!empty($sites[0]['last_name'] ) ){
+					echo $sites[0]['last_name'];
+				} else {
+					echo "Shakespeare";
+				};?>
+			</h2>
+
+			<?php
+					include( ROOT_PATH . "/application/www/quotes/QuotesView.phtml");
+			?>
+
+		</div>
+		<!-- title-container -->
+		<?php //include( ROOT_PATH . "/application/www/networking/NetworkingView.phtml");?>
+		<?php include( ROOT_PATH . "/application/www/social/SocialView.phtml");?>
+		<!-- .social-links -->
+	</div>
+	<!-- .col-* -->
+
+</div><!-- .row -->
+</div><!-- .vcard-header -->
