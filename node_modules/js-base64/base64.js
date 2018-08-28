@@ -21,13 +21,15 @@
     'use strict';
     // existing version for noConflict()
     var _Base64 = global.Base64;
-    var version = "2.4.3";
-    // if node.js, we use Buffer
+    var version = "2.4.9";
+    // if node.js and NOT React Native, we use Buffer
     var buffer;
     if (typeof module !== 'undefined' && module.exports) {
         try {
-            buffer = require('buffer').Buffer;
-        } catch (err) {}
+            buffer = eval("require('buffer').Buffer");
+        } catch (err) {
+            buffer = undefined;
+        }
     }
     // constants
     var b64chars
@@ -81,7 +83,8 @@
         return b.replace(/[\s\S]{1,3}/g, cb_encode);
     };
     var _encode = buffer ?
-        buffer.from && buffer.from !== Uint8Array.from ? function (u) {
+        buffer.from && Uint8Array && buffer.from !== Uint8Array.from
+        ? function (u) {
             return (u.constructor === buffer.constructor ? u : buffer.from(u))
                 .toString('base64')
         }
@@ -152,7 +155,8 @@
         return a.replace(/[\s\S]{1,4}/g, cb_decode);
     };
     var _decode = buffer ?
-        buffer.from && buffer.from !== Uint8Array.from ? function(a) {
+        buffer.from && Uint8Array && buffer.from !== Uint8Array.from
+        ? function(a) {
             return (a.constructor === buffer.constructor
                     ? a : buffer.from(a, 'base64')).toString();
         }
@@ -184,7 +188,8 @@
         encodeURI: encodeURI,
         btou: btou,
         decode: decode,
-        noConflict: noConflict
+        noConflict: noConflict,
+        __buffer__: buffer
     };
     // if ES5 is available, make Base64.extendString() available
     if (typeof Object.defineProperty === 'function') {
