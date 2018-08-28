@@ -16,7 +16,7 @@ les fonctionnalités
 - Portail de connexion
 - Modification du contenu
 - Récupération du mot de passe oublié
-- Construction d'un package d'installation du site (install-vcard.php + vcard_archive.zip)
+- Construction d'un package d'installation du site (install-vcard.php + vcard_archive.zip) dans le dossier dist
 
 
 Ce que j'ai appris grâce à ce projet
