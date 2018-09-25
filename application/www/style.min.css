@@ -104,7 +104,7 @@ strong{font-weight:bold}
 .sidenav .closebtn{position:absolute;top:0;left:-1.875em;font-size:1em}
 #main{-webkit-transition:margin-left .5s;transition:margin-left .5s;padding:16px}
 header{padding:16px;text-align:center}
-header h1{display:none}
+.sr-only{position:absolute;left:-10000px;width:1px;height:1px;top:auto;overflow:hidden}
 .vcard-header{padding:3.125em;text-align:center;color:#fff;text-shadow:2px 2px #222}
 .overlay{position:relative}
 .overlay::before{position:absolute;content:"";top:0;left:0;width:100%;height:100%;background-color:#222;opacity:.4}

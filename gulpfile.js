@@ -30,7 +30,7 @@
 // START Editing Project Variables.
 // Project related.
 var project                 = 'starter_theme'; // Project Name.
-var projectURL              = 'localhost:8888/personal_websites/vcard-3w/'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
+var projectURL              = 'localhost:8888/personal_websites/vcard/'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
 var productURL              = './'; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 
 // Translation related.
@@ -60,7 +60,7 @@ var phtmlSRC                  = './**/*.phmtl'; // Path to source PHP files
 
 // JS vendors related.
 var jsvendorsRC = './application/www/assets/js/vendors/*.js'; // Path to JS vendors folder.
-var jsvendorsDestination = './application/www/assets//js/'; // Path to place the compiled JS vendors file.
+var jsvendorsDestination = './application/www/assets/js/'; // Path to place the compiled JS vendors file.
 var jsvendorsFile = 'vendors'; // Compiled JS vendors file name.
 // Default set to vendors i.e. vendors.js.
 

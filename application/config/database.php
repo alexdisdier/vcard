@@ -7,6 +7,6 @@
  * the other database.php
  */
 
-$config['dsn']      = 'mysql:host=localhost;dbname=alexdisd_vcard';
+$config['dsn']      = 'mysql:host=localhost;dbname=vcard';
 $config['password'] = 'root';
 $config['user']     = 'root';
