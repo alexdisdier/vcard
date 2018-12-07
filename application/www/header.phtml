@@ -10,6 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="google-site-verification" content="lEKJeLiKUtHVTRsh552CsiSONRo5xiHd3SDqS7mX4VE" />
   <title><?php
 
     if (!empty($metas[0]['site_title']) ) {
@@ -40,6 +41,15 @@
   <link href="<?= $wwwUrl ?>/style.min.css" type="text/css" rel="stylesheet" />
 
   <!-- ================= Google Analytics ================== -->
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_TRACKING_ID');
+</script>
 </head>
 
 <body id="<?php if($userSession->isAuthenticated() == true): ?>admin<?php endif;?>" class="">
@@ -58,7 +68,7 @@
       <a class="admin-bar-log-out" href="<?= $requestUrl ?>/user/logout">Log Out</a>
     </div>
   <?php endif; ?>
-  <header>
+  <header id="welcome-section"><!-- pass freecodecamp test -->
     <h1 class="sr-only"><?php
 
       if (!empty($metas[0]['site_title']) ) {
