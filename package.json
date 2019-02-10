@@ -8,15 +8,10 @@
     "url": "https://github.com/ahmadawais/WPGulp"
   },
   "dependencies": {
-    "copy": "^0.3.2",
-    "del": "^3.0.0",
-    "gulp-copy": "^1.1.0",
-    "lodash": "^4.17.10",
-    "lodash.update": "^4.10.2",
-    "npm-check": "^5.8.0"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "browser-sync": "^2.24.7",
+    "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
