@@ -11,9 +11,9 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.5",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
+    "gulp-autoprefixer": "^6.1.0",
     "gulp-concat": "^2.6.1",
     "gulp-filter": "^5.1.0",
     "gulp-imagemin": "^4.1.0",
@@ -24,10 +24,10 @@
     "gulp-sass": "^4.0.1",
     "gulp-sequence": "^1.0.0",
     "gulp-sort": "^2.0.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
     "gulp-uglifycss": "^1.1.0",
-    "gulp-wp-pot": "^2.3.2",
+    "gulp-wp-pot": "^2.3.5",
     "gulp-zip": "^4.2.0"
   }
 }
