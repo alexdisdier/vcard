@@ -1,4 +1,5 @@
-# VCARD Website Template
+# VCARD Website Template 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Responsive personal vCard template. Designed and developed both as a personal business card and a final project.
 
